@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTs user_sharding (
+    id PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    phone VARCHAR(20),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    address TEXT,
+    user_create INT NOT NULL,
+    user_update INT,
+    time_create TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    time_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    status BOOLEAN DEFAULT TRUE,
+    avatar TEXT
+);

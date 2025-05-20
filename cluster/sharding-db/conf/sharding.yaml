@@ -1,0 +1,7 @@
+sharding:
+  - sharding_index: 0
+    connections: "pgsql://postgres:postgres@localhost:5432/postgres"
+  - sharding_index: 1
+    connections: "pgsql://postgres:postgres@localhost:5433/postgres"
+  - sharding_index: 2
+    connections: "pgsql://postgres:postgres@localhost:5434/postgres"
