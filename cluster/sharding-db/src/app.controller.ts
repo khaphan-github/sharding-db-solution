@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { ExecuteShardingSQLCommand } from './sharding/execute-sql-sharding.command';
 import { InsertUserShardingDto } from './dto/insert-user-sharding.dto';
@@ -62,20 +61,6 @@ export class AppController {
       data: {
         id: uniqueId,
       },
-    };
-  }
-
-  @Get('user/:id')
-  async findUserById(@Param('id') id: number) {
-    const sql = `
-      SELECT * FROM user_sharding WHERE id = $1;
-    `;
-    const user = await this.commandBus.execute(
-      new ExecuteShardingSQLCommand(sql, id, [id]),
-    );
-    return {
-      message: 'User retrieved',
-      data: user,
     };
   }
 }

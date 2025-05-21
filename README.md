@@ -31,7 +31,7 @@ Sharding is particularly beneficial in the following scenarios:
 - **High Availability Requirements**: By distributing data across multiple servers, you can reduce single points of failure.
 
 ## Sharding Strategies
-
+![alt text](image-1.png)
 ### Range-Based Sharding
 
 Data is partitioned based on ranges of a key value.
