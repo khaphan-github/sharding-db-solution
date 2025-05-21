@@ -33,9 +33,6 @@ export class ExecuteShardingSQLHandler
     const shardingIndex = +uniqueId % command.maxSharding;
     let client = this.pollingMap.get(shardingIndex);
     if (!client) {
-      console.log(
-        `Creating new connection for sharding index: ${shardingIndex}`,
-      );
       const conf: any = await this.queryBus.execute(
         new GetShardingByIndexQuery(shardingIndex),
       );
@@ -45,7 +42,7 @@ export class ExecuteShardingSQLHandler
       this.pollingMap.set(shardingIndex, db);
       client = db;
     }
-
+    console.log(`Creating new connection for sharding index: ${shardingIndex}`);
     if (!client) {
       throw new Error('Failed to create database connection');
     }

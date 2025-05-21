@@ -12,7 +12,7 @@
 - [References](#references)
 
 ## Introduction to Sharding
-
+![alt text](image.png)
 Database sharding is a horizontal partitioning technique that breaks a large database into smaller, more manageable pieces called shards. Each shard contains a distinct subset of the data and operates as an independent database instance, often distributed across different physical servers or cloud instances.
 
 ### Key Concepts
